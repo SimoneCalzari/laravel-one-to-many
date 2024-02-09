@@ -80,6 +80,22 @@
                 @endforeach
             @enderror
             <!-- TYPE RADIO -->
+            <!-- SELECT DIFFICULTY-->
+            <label class="form-label" for="difficulty">Difficulty</label>
+            <select class="form-select mb-3" id="difficulty" name="type_id">
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>
+                        {{ $type->difficulty }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                @foreach ($errors->get('type_id') as $error)
+                    <div class="alert alert-danger">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @enderror
+            <!-- /SELECT DIFFICULTY-->
             <!-- UPLOAD IMMAGINE -->
             <div class="mb-4">
                 <label class="form-label" for="project_img">Project Picture</label>
