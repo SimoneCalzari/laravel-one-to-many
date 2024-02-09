@@ -34,11 +34,12 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $img_path = Storage::put('uploads', $request['project_img']);
+
         $request_validated = $request->validated();
+
+
         $project = new Project();
         $project->fill($request_validated);
-        $project->project_img = $img_path;
         $project->slug = Str::of($project->title)->slug('-');
         switch ($request['application_type']) {
             case '1':
@@ -50,6 +51,9 @@ class ProjectController extends Controller
             case '3':
                 $project->is_monolith = true;
                 break;
+        }
+        if (isset($request_validated['project_img'])) {
+            $project->project_img = Storage::put('uploads', $request_validated['project_img']);
         }
         $project->save();
         return redirect()->route('admin.projects.index')->with('new_record', "Il progetto $project->title #$project->id è stato aggiunto ai tuoi progetti");
