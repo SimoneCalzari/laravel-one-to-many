@@ -37,11 +37,11 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
 
-        $request_validated = $request->validated();
+        $data_validated = $request->validated();
 
 
         $project = new Project();
-        $project->fill($request_validated);
+        $project->fill($data_validated);
 
         $project->slug = Str::of($project->title)->slug('-');
         switch ($request['application_type']) {
@@ -57,7 +57,7 @@ class ProjectController extends Controller
         }
 
         if (isset($request_validated['project_img'])) {
-            $project->project_img = Storage::put('uploads', $request_validated['project_img']);
+            $project->project_img = Storage::put('uploads', $data_validated['project_img']);
         }
         $project->save();
         return redirect()->route('admin.projects.index')->with('new_record', "Il progetto $project->title #$project->id è stato aggiunto ai tuoi progetti");
@@ -87,6 +87,12 @@ class ProjectController extends Controller
     {
 
         $data_validated = $request->validated();
+        if (!empty($data_validated['project_img'])) {
+            if ($project->project_img) {
+                Storage::delete($project->project_img);
+            }
+            $project->project_img = Storage::put('uploads', $data_validated['project_img']);
+        }
         switch ($request['application_type']) {
             case '1':
                 $project->is_frontend = true;
@@ -105,6 +111,7 @@ class ProjectController extends Controller
                 break;
         }
         $project->slug = Str::of($data_validated['title'])->slug('-');
+
         $project->update($data_validated);
 
 
