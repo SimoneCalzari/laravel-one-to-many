@@ -98,6 +98,25 @@
                     </div>
                 @endforeach
             @enderror
+            <!-- SWITCH UPLOAD IMMAGINE -->
+            <div class="form-check form-switch mb-3 mt-4">
+                <input class="form-check-input" type="checkbox" role="switch" id="update-img" value="1">
+                <label class="form-check-label" for="update-img">Switch if you want to change your project picture</label>
+            </div>
+            <!-- /SWITCH UPLOAD IMMAGINE -->
+            <!-- UPLOAD IMMAGINE -->
+            <div class="mb-4 d-none" id="input-img">
+                <label class="form-label" for="project_img">Project Picture</label>
+                <input type="file" class="form-control" id="project_img" name="project_img">
+            </div>
+            <!-- /UPLOAD IMMAGINE -->
+            @error('project_img')
+                @foreach ($errors->get('project_img') as $error)
+                    <div class="alert alert-danger">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @enderror
             <!-- SUBMIT -->
             <button type="submit" class="btn btn-dark">Edit <i class="fa-regular fa-paper-plane ms-1"></i></button>
             <!-- /SUBMIT -->
