@@ -44,6 +44,20 @@
                         Fullstack
                     @endif
                 </p>
+
+                <!-- DIFFICOLTA E TEAM/SINGLE DEL PROGETTO SFRUTTANDO RELAZIONI TRA TABELLE -->
+                @if ($project->type_id)
+                    <h5 class="card-title">Difficulty</h5>
+                    <p class="card-text">{{ $project->type->difficulty }}</p>
+                @endif
+                @if (isset($project->type->is_team_project))
+                    <h5 class="card-title">Team or Individual</h5>
+                    <p class="card-text">{!! $project->type->is_team_project
+                        ? '<i class="fa-solid fa-users fs-5"></i>'
+                        : '<i class="fa-solid fa-user fs-5"></i>' !!}</p>
+                @endif
+                <!-- /DIFFICOLTA E TEAM/SINGLE DEL PROGETTO SFRUTTANDO RELAZIONI TRA TABELLE -->
+
                 <!-- EDIT-->
                 <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary">Edit <i
                         class="fa-solid fa-pen-to-square ms-1"></i></a>
