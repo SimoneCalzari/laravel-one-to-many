@@ -88,6 +88,7 @@
                         {{ $type->difficulty }}</option>
                 @endforeach
             </select>
+            <!-- /SELECT DIFFICULTY-->
             @error('type_id')
                 @foreach ($errors->get('type_id') as $error)
                     <div class="alert alert-danger">
@@ -95,7 +96,6 @@
                     </div>
                 @endforeach
             @enderror
-            <!-- /SELECT DIFFICULTY-->
             <!-- UPLOAD IMMAGINE -->
             <div class="mb-4">
                 <label class="form-label" for="project_img">Project Picture</label>
