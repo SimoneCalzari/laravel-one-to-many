@@ -56,7 +56,7 @@ class ProjectController extends Controller
                 break;
         }
 
-        if (isset($request_validated['project_img'])) {
+        if (!empty($data_validated['project_img'])) {
             $project->project_img = Storage::put('uploads', $data_validated['project_img']);
         }
         $project->save();
