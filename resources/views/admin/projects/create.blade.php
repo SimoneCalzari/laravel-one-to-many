@@ -82,7 +82,7 @@
             <!-- TYPE RADIO -->
             <!-- SELECT DIFFICULTY-->
             <label class="form-label" for="difficulty">Difficulty</label>
-            <select class="form-select mb-3" id="difficulty" name="type_id">
+            <select class="form-select mb-3 w-50" id="difficulty" name="type_id">
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>
                         {{ $type->difficulty }}</option>
@@ -98,8 +98,12 @@
             @enderror
             <!-- UPLOAD IMMAGINE -->
             <div class="mb-4">
-                <label class="form-label" for="project_img">Project Picture</label>
-                <input type="file" class="form-control" id="project_img" name="project_img">
+                <label class="form-label" for="project-img ">Project Picture</label>
+                <div class="d-flex w-50">
+                    <input type="file" class="form-control rounded-end-0" id="project-img" name="project_img">
+                    <div role="button" class="bg-dark text-white border-0 fs-5 px-3 rounded-end-3" id="empty-img-field"><i
+                            class="fa-solid fa-xmark align-middle"></i></div>
+                </div>
             </div>
             <!-- /UPLOAD IMMAGINE -->
             @error('project_img')
