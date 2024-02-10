@@ -113,6 +113,12 @@
                     </div>
                 @endforeach
             @enderror
+            <!-- PREVIEW IMMAGINE -->
+            <div class="border border-3 rounded d-none w-25 py-3 text-center mb-3" id="preview-img">
+                <h5>Current Picture Selected</h5>
+                <img src="" alt="Preview Image" class="w-75">
+            </div>
+            <!-- /PREVIEW IMMAGINE -->
             <!-- SUBMIT -->
             <button type="submit" class="btn btn-dark">Create <i class="fa-regular fa-paper-plane ms-1"></i></button>
             <!-- /SUBMIT -->

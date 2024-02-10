@@ -98,10 +98,19 @@
                     </div>
                 @endforeach
             @enderror
+            <!-- CURRENT IMMAGINE -->
+            @if ($project->project_img)
+                <div class="border border-3 rounded w-25 py-3 text-center mb-3">
+                    <h5>Current Project Picture</h5>
+                    <img src="{{ asset("storage/$project->project_img") }}" alt="Current project image" class="w-75">
+                </div>
+            @endif
+            <!-- /CURRENT IMMAGINE -->
             <!-- SWITCH UPLOAD IMMAGINE -->
             <div class="form-check form-switch mb-3 mt-4">
                 <input class="form-check-input" type="checkbox" role="switch" id="update-img" value="1">
-                <label class="form-check-label" for="update-img">Switch if you want to change your project picture</label>
+                <label class="form-check-label" for="update-img">Switch if you want to change your project
+                    picture</label>
             </div>
             <!-- /SWITCH UPLOAD IMMAGINE -->
             <!-- UPLOAD IMMAGINE -->
@@ -121,6 +130,12 @@
                     </div>
                 @endforeach
             @enderror
+            <!-- PREVIEW IMMAGINE -->
+            <div class="border border-3 rounded d-none w-25 py-3 text-center mb-3" id="preview-img">
+                <h5>Current Picture Selected</h5>
+                <img src="" alt="Preview Image" class="w-75">
+            </div>
+            <!-- /PREVIEW IMMAGINE -->
             <!-- SUBMIT -->
             <button type="submit" class="btn btn-dark mb-4">Edit <i class="fa-regular fa-paper-plane ms-1"></i></button>
             <!-- /SUBMIT -->
