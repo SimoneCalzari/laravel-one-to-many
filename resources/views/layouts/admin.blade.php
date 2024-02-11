@@ -73,14 +73,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.projects.create') }}">
-                                    <i class="fa-solid fa-folder-plus fa-lg fa-fw"></i> Add a Project
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.types.index') }}">
+                                    <i class="fa-solid fa-list fa-lg fa-fw"></i> Project Types
                                 </a>
                             </li>
                         </ul>
-
-
                     </div>
                 </nav>
                 <!-- /NAVBAR PER MODALITA DESKTOP E MAGGIORI -->

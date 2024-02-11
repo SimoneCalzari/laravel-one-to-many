@@ -24,15 +24,19 @@ if (buttonImg) {
     });
 }
 
-inputImg.addEventListener("change", function () {
-    if (isImage(inputImg.value)) {
-        previewImg.classList.remove("d-none");
-        img.src = window.URL.createObjectURL(this.files[0]);
-    }
-});
+if (inputImg) {
+    inputImg.addEventListener("change", function () {
+        if (isImage(inputImg.value)) {
+            previewImg.classList.remove("d-none");
+            img.src = window.URL.createObjectURL(this.files[0]);
+        }
+    });
+}
 
-buttonEmptyImg.addEventListener("click", function () {
-    inputImg.value = "";
-    img.src = "";
-    previewImg.classList.add("d-none");
-});
+if (buttonEmptyImg) {
+    buttonEmptyImg.addEventListener("click", function () {
+        inputImg.value = "";
+        img.src = "";
+        previewImg.classList.add("d-none");
+    });
+}
